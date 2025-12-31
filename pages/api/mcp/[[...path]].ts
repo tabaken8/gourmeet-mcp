@@ -12,7 +12,10 @@ function createServer() {
   server.registerTool(
     "ping",
     { title: "Ping", description: "Health check", inputSchema: {} as any },
-    async () => ({ content: [{ type: "text", text: "pong" }] })
+async () => ({
+  content: [{ type: "text" as const, text: "pong" }],
+})
+
   );
 
   return server;
