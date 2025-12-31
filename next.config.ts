@@ -2,7 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   async rewrites() {
-    return [{ source: "/mcp/:path*", destination: "/api/mcp/:path*" }];
+    return {
+      beforeFiles: [
+        { source: "/mcp/:path*", destination: "/api/mcp/:path*" },
+      ],
+    };
   },
 };
 
